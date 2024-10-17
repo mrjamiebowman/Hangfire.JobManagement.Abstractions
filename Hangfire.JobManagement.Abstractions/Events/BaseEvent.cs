@@ -1,6 +1,5 @@
 ﻿namespace Hangfire.JobManagement.Abstractions.Events;
-
-public class IEventNotification
+public abstract class BaseEvent
 {
 
 }

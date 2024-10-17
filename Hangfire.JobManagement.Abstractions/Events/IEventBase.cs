@@ -1,6 +1,6 @@
-﻿namespace Hangfire.JobManagement.Abstractions.Events
+﻿namespace Hangfire.JobManagement.Abstractions.Events;
+
+public interface IEventBase
 {
-    internal interface IEventBase
-    {
-    }
+
 }

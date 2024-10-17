@@ -1,9 +1,6 @@
-﻿using System;
+﻿namespace Hangfire.JobManagement.Abstractions;
 
-namespace Hangfire.JobManagement.Abstractions
+public interface INotificationService
 {
-    public class INotificationService
-    {
 
-    }
 }
