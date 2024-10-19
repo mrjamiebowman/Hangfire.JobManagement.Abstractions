@@ -13,6 +13,8 @@
     <PackageId>mrjamiebowman.$(AssemblyName)</PackageId>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/mrjamiebowman/Hangfire.JobManagement.Abstractions</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
