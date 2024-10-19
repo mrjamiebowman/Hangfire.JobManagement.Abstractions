@@ -1,0 +1,39 @@
+name: Build & Publish
+
+on:
+  push:
+    branches:
+      - main # You can change this to the branch you want to trigger the workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Setup .NET
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.x' # Specify the .NET version
+
+      # Restore dependencies
+      - name: Restore dependencies
+        run: dotnet restore
+
+      # Build the project
+      - name: Build project
+        run: dotnet build --configuration Release --no-restore
+
+      # Pack the project
+      - name: Pack project
+        run: dotnet pack --configuration Release --no-restore --output ./output
+
+      # Push to NuGet.org
+      - name: Publish to NuGet
+        run: dotnet nuget push "./output/*.nupkg" --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
